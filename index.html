@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sinolife Collagen</title>
+<meta name="description" content="Soch to‘kilishi, tirnoq mo‘rtligi, bo‘g‘im og‘rig‘i uchun SinoLife Collagen 10 000 mg. 30 soniyalik bepul tahlildan o‘ting va mutaxassisdan bepul maslahat oling.">
+<meta name="theme-color" content="#FBF6EE">
+<meta name="format-detection" content="telephone=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,600&family=Onest:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#FBF6EE;
+  --bg2:#F5ECDF;
+  --surface:#FFFFFF;
+  --surface2:#F1E6D6;
+  --line:rgba(120,70,40,.14);
+  --line2:rgba(120,70,40,.30);
+  --cream:#2A1810;
+  --text2:#4A3428;
+  --muted:#6E5646;
+  --dim:#9A8272;
+  --gold:#C8922E;
+  --gold2:#F3D08E;
+  --em:#B8651C;
+  --orange:#FF8A2A;
+  --orange2:#E8701C;
+  --cocoa:#8A4A2A;
+  --ok:#2E9E5B;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --r:18px;
+  --col:480px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font:400 16px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+button,input{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
+
+/* ambient */
+.glow{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+   radial-gradient(60vmax 45vmax at 85% -10%,rgba(255,138,42,.18),transparent 60%),
+   radial-gradient(55vmax 45vmax at -10% 30%,rgba(224,176,96,.28),transparent 60%),
+   radial-gradient(70vmax 50vmax at 50% 120%,rgba(255,196,140,.35),transparent 60%);}
+.wrap{position:relative;z-index:1;max-width:var(--col);margin:0 auto;padding-inline:16px;padding-block:0 110px}
+
+/* demo banner */
+.demo{margin:10px 0 0;font-size:12px;color:#1c110c;background:var(--gold2);border-radius:10px;padding:7px 10px;text-align:center}
+
+/* header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;align-items:center;gap:10px;padding:10px 0;background:linear-gradient(var(--bg) 70%,rgba(251,246,238,0));}
+.logo{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font:700 18px var(--display);color:#2a1208;background:conic-gradient(from 200deg,var(--gold2),var(--gold),#b9803a,var(--gold2));box-shadow:0 0 0 2px rgba(200,146,46,.3)}
+.brand{display:flex;flex-direction:column;line-height:1.1}
+.brand b{font-weight:700;font-size:15px;letter-spacing:.2px}
+.brand span{font-size:12px;color:var(--muted)}
+.hdr .call{margin-left:auto;display:flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;border:1px solid var(--line2);font-size:13px;font-weight:600;text-decoration:none;background:rgba(255,255,255,.75)}
+.hdr .call svg{width:15px;height:15px}
+
+/* screens */
+.screen{animation:in .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* marquee */
+.marq{margin:6px -16px 18px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.track{display:flex;gap:10px;width:max-content;animation:mq 46s linear infinite}
+.track img{height:104px;width:auto;border-radius:14px;border:1px solid var(--line)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;letter-spacing:.3px;color:var(--em);padding:6px 11px;border-radius:999px;background:rgba(200,146,46,.12);border:1px solid rgba(200,146,46,.35)}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(255,138,42,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,138,42,0)}100%{box-shadow:0 0 0 0 rgba(255,138,42,0)}}
+
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.12;margin:0;text-wrap:balance;letter-spacing:-.2px}
+h1{font-size:clamp(30px,8.4vw,38px);margin-top:12px}
+h2{font-size:clamp(25px,6.8vw,31px)}
+h3{font-size:20px}
+em{font-style:italic;font-weight:600;color:var(--em)}
+.sub{color:var(--muted);margin:10px 0 0;font-size:15px}
+
+.step{display:flex;align-items:center;gap:10px;margin:18px 0 12px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{flex:1;height:4px;border-radius:4px;background:var(--surface2);overflow:hidden}
+.bar b{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--orange));transition:width .5s ease}
+
+/* options */
+.opts{display:grid;gap:10px}
+.opt{position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:14px 14px;border-radius:var(--r);border:1px solid var(--line);background:linear-gradient(180deg,#FFFFFF,#FBF4EA);cursor:pointer;transition:transform .15s ease,border-color .2s,background .2s;animation:in .5s cubic-bezier(.2,.7,.2,1) both;-webkit-tap-highlight-color:transparent}
+.opt:nth-child(2){animation-delay:.06s}.opt:nth-child(3){animation-delay:.12s}.opt:nth-child(4){animation-delay:.18s}
+.opt:active{transform:scale(.98)}
+.opt .ic{flex:none;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:radial-gradient(circle at 30% 25%,rgba(243,208,142,.65),rgba(255,138,42,.18));border:1px solid rgba(200,146,46,.38)}
+.opt .ic svg{width:26px;height:26px;stroke:#9A5A1E;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.opt .tx{flex:1;min-width:0}
+.opt .tx b{display:block;font-size:16.5px;font-weight:700}
+.opt .tx small{display:block;font-size:13px;color:var(--muted);line-height:1.35;margin-top:2px}
+.opt .rd{flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line2);display:grid;place-items:center;transition:.2s}
+.opt .rd svg{width:14px;height:14px;stroke:var(--bg);stroke-width:3;fill:none;opacity:0;transform:scale(.4);transition:.2s}
+.opt.on{border-color:var(--gold);background:linear-gradient(180deg,#FFF7E9,#FFEFD8);box-shadow:0 8px 24px -14px rgba(200,146,46,.6)}
+.opt.on .rd{background:var(--gold);border-color:var(--gold)}
+.opt.on .rd svg{opacity:1;transform:none}
+@media (hover:hover){.opt:hover{border-color:var(--line2)}}
+
+.back{margin-top:14px;background:none;border:0;color:var(--muted);font-size:14px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;padding:6px 0}
+.trustline{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:18px;font-size:12.5px;color:var(--dim)}
+.trustline span{display:inline-flex;align-items:center;gap:6px}
+.trustline svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2}
+
+/* analyzing */
+.anl{min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:22px}
+.ring{width:96px;height:96px;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:6}
+.ring .t{stroke:var(--surface2)}
+.ring .p{stroke:url(#gr);stroke-linecap:round;stroke-dasharray:276;stroke-dashoffset:276;transition:stroke-dashoffset 2.4s cubic-bezier(.4,.1,.2,1)}
+.ring span{position:absolute;inset:0;display:grid;place-items:center;font:700 22px var(--display);font-variant-numeric:tabular-nums}
+.checks{display:grid;gap:12px;text-align:left}
+.checks div{display:flex;align-items:center;gap:10px;color:var(--dim);transition:color .3s}
+.checks i{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line2);display:grid;place-items:center;flex:none;transition:.3s}
+.checks i svg{width:12px;height:12px;stroke:var(--bg);stroke-width:3;fill:none;opacity:0}
+.checks .d{color:var(--cream)}
+.checks .d i{background:var(--ok);border-color:var(--ok)}
+.checks .d i svg{opacity:1}
+
+/* result */
+.sec{margin-top:34px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
+.chip{font-size:12.5px;padding:5px 10px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);color:var(--muted)}
+.chip b{color:var(--cream);font-weight:600}
+.resq{font-size:clamp(26px,7.2vw,32px)}
+.resa{font:italic 600 clamp(19px,5.2vw,22px)/1.3 var(--display);color:var(--em);margin:12px 0 0;text-wrap:balance}
+.rest{margin:14px 0 0;color:var(--text2);font-size:16px}
+.rest strong{color:var(--cream)}
+
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:20px;padding:17px 18px;border:0;border-radius:16px;cursor:pointer;font-weight:800;font-size:16px;letter-spacing:.6px;color:#2a1208;text-decoration:none;
+  background:linear-gradient(100deg,var(--orange),#FFB14E 55%,var(--gold2));box-shadow:0 10px 28px -8px rgba(255,138,42,.6),inset 0 1px 0 rgba(255,255,255,.4);position:relative;overflow:hidden;transition:transform .15s}
+.cta:active{transform:scale(.98)}
+.cta::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
+@keyframes shine{0%,55%{left:-60%}100%{left:130%}}
+.cta svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4}
+.cta[disabled]{opacity:.7;cursor:wait}
+
+/* product showcase */
+.show{position:relative;margin-top:30px;border-radius:24px;padding:10px;background:linear-gradient(160deg,#F8E2B4,#F1CBA3 45%,#FFD3A8);}
+.show img{border-radius:16px;width:100%;height:auto}
+.float{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:16px;padding:8px 11px;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(200,146,46,.45);box-shadow:0 6px 18px -8px rgba(90,50,20,.35);font-size:11.5px;color:var(--muted);line-height:1.15;animation:bob 5s ease-in-out infinite}
+.float b{font:700 18px var(--display);color:var(--em)}
+.f1{top:22px;left:-4px}
+.f2{top:38%;right:-6px;animation-delay:-1.6s}
+.f3{bottom:26px;left:10px;animation-delay:-3.2s}
+@keyframes bob{50%{transform:translateY(-7px)}}
+.ribbon{position:absolute;top:18px;right:18px;font-weight:800;font-size:12px;letter-spacing:1px;padding:7px 10px;border-radius:10px;color:#2a1208;background:linear-gradient(100deg,var(--orange),var(--gold2));transform:rotate(4deg);box-shadow:0 8px 20px -6px rgba(255,138,42,.7)}
+.pname{margin-top:18px}
+.pname h2 span{color:var(--em)}
+.pname p{margin:8px 0 0;color:var(--muted);font-size:15px}
+
+/* formula */
+.formula{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:6px;margin-top:16px}
+.fx{border-radius:16px;padding:14px 8px;text-align:center;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:4px;justify-content:center}
+.fx b{font:700 21px/1 var(--display);color:var(--em)}
+.fx.c b{color:var(--orange2)}
+.fx small{font-size:11.5px;line-height:1.3;color:var(--muted)}
+.plus{align-self:center;font:700 22px var(--display);color:var(--dim)}
+.eq{margin-top:10px;padding:14px 16px;border-radius:16px;background:linear-gradient(100deg,rgba(255,138,42,.16),rgba(224,176,96,.18));border:1px solid rgba(255,138,42,.38);font-size:15px;color:var(--text2)}
+.eq b{color:var(--cream)}
+.benef{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.benef div{text-align:center;font-size:12px;font-weight:600;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.benef svg{width:44px;height:44px;padding:10px;border-radius:50%;border:1px solid rgba(200,146,46,.4);stroke:var(--em);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;background:rgba(224,176,96,.16)}
+
+.photo{margin-top:16px;border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+.photo img{width:100%;height:auto}
+.cap{font-size:13px;color:var(--dim);margin-top:8px}
+
+/* gallery */
+.gal{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:14px -16px 0;padding:0 16px 6px;scrollbar-width:none}
+.gal::-webkit-scrollbar{display:none}
+.gal img{height:340px;width:auto;max-width:none;flex:none;border-radius:16px;scroll-snap-align:center;border:1px solid var(--line)}
+.galhint{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--dim);margin-top:6px}
+
+/* promo */
+.promo{position:relative;margin-top:14px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,138,42,.45);background:linear-gradient(170deg,#FFF3E0,#FFE4C4 60%);box-shadow:0 24px 50px -30px rgba(200,110,40,.45)}
+.promo-top{padding:20px 18px 6px}
+.big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.big strong{font:700 54px/0.95 var(--display);background:linear-gradient(100deg,var(--orange2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.big span{font:italic 600 22px var(--display);color:var(--cream)}
+.promo-top p{margin:8px 0 0;font-size:15px;color:var(--text2)}
+.promo img{width:100%;height:auto;margin-top:12px}
+.perks{display:grid;gap:10px;padding:16px 18px 20px}
+.perk{display:flex;align-items:center;gap:12px;font-size:15px}
+.perk i{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(255,138,42,.16);border:1px solid rgba(255,138,42,.4)}
+.perk svg{width:18px;height:18px;stroke:var(--orange2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* form */
+.formcard{margin-top:14px;border-radius:24px;padding:20px 18px;background:linear-gradient(180deg,#FFFFFF,#FBF3E8);border:1px solid var(--line2);box-shadow:0 30px 60px -30px rgba(90,50,20,.35)}
+.formcard p.lead{margin:8px 0 16px;color:var(--muted);font-size:15px}
+.field{display:block;margin-bottom:12px}
+.field span{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:500}
+.inp{display:flex;align-items:center;border-radius:14px;border:1.5px solid var(--line2);background:#FFFFFF;transition:border-color .2s}
+.inp:focus-within{border-color:var(--gold)}
+.inp em{font-style:normal;color:var(--cream);font-weight:600;padding-left:14px}
+.inp input{flex:1;min-width:0;border:0;background:transparent;padding:15px 14px;font-size:17px;outline:none}
+.inp input::placeholder{color:var(--dim)}
+.inp.bad{border-color:#D9534F}
+.err{min-height:18px;font-size:13px;color:#C0392B;margin-top:4px}
+.fnote{display:grid;gap:6px;margin-top:12px;font-size:13px;color:var(--dim)}
+.fnote span{display:flex;gap:8px;align-items:center}
+.fnote svg{width:14px;height:14px;stroke:var(--ok);fill:none;stroke-width:2.4;flex:none}
+
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.trio div{text-align:center;font-size:12px;line-height:1.3;color:var(--muted);padding:12px 6px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.trio svg{width:22px;height:22px;stroke:var(--em);fill:none;stroke-width:1.8;margin:0 auto 6px;display:block}
+.again{display:block;margin:20px auto 0;background:none;border:1px solid var(--line2);color:var(--muted);border-radius:999px;padding:9px 16px;font-size:13.5px;cursor:pointer}
+
+footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--dim)}
+footer .soc{display:flex;justify-content:center;gap:10px;margin:12px 0}
+footer .soc a{padding:8px 14px;border-radius:999px;border:1px solid var(--line2);text-decoration:none;color:var(--muted);font-weight:600}
+footer small{display:block;margin-top:8px;line-height:1.5}
+
+/* thanks */
+.thx{min-height:72vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px}
+.okc{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(46,158,91,.18),transparent 70%);border:2px solid var(--ok);animation:pop .6s cubic-bezier(.2,1.6,.4,1) both}
+.okc svg{width:44px;height:44px;stroke:var(--ok);stroke-width:3;fill:none;stroke-dasharray:60;stroke-dashoffset:60;animation:draw .6s .35s ease forwards}
+@keyframes pop{from{transform:scale(.3);opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.thx p{color:var(--muted);max-width:34ch;margin:0}
+.thx .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.ghost{padding:12px 16px;border-radius:14px;border:1px solid var(--line2);text-decoration:none;font-weight:600;font-size:14px}
+
+/* sticky */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:linear-gradient(rgba(251,246,238,0),var(--bg) 35%);transform:translateY(120%);transition:transform .35s ease}
+.sticky.show{transform:none}
+.sticky .cta{max-width:calc(var(--col) - 32px);margin:0 auto;padding:15px}
+.sticky small{display:block;text-align:center;font-size:11.5px;color:var(--muted);margin-top:6px}
+
+.rv{transition:opacity .7s ease,transform .7s ease}
+.rv.pre{opacity:.001;transform:translateY(22px)}
+
+@media (min-width:700px){.gal img{height:400px}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .track{animation:none}
+}
+</style>
+
+</head>
+<body>
+
+<div class="glow" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><linearGradient id="gr" x1="0" x2="1"><stop offset="0" stop-color="#E0B060"/><stop offset="1" stop-color="#FF8A2A"/></linearGradient></defs>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.1 6.1l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+  <symbol id="i-cash" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.5" y="9" width="17" height="11" rx="1.5"/><path d="M2.5 9h19v-3h-19zM12 6v14M12 6c-1.5-3-5-3.5-5-1s3.5 1 5 1c1.5 0 5 1.5 5-1s-3.5-2-5 1"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
+  <symbol id="i-hair" viewBox="0 0 32 32"><path d="M9 27c0-6 3-8 3-14s-2-7-2-8"/><path d="M15 27c0-6 3-8 3-14s-2-7-2-8"/><path d="M21 27c0-6 3-8 3-14s-2-7-2-8"/><path d="M11 29.5l1-2M20 29l.5-2"/></symbol>
+  <symbol id="i-nail" viewBox="0 0 32 32"><path d="M11 29V12a5 5 0 0 1 10 0v17"/><path d="M13 13.5a3 3 0 0 1 6 0V17h-6z"/><path d="M17.5 17l-1.5 2.5 1.2 1.5"/></symbol>
+  <symbol id="i-joint" viewBox="0 0 32 32"><path d="M12 3v9M20 3v9M12 29v-9M20 29v-9"/><path d="M10 12h12a3 3 0 0 1 0 4H10a3 3 0 0 1 0-4zM10 16h12a3 3 0 0 1 0 4H10a3 3 0 0 1 0-4z"/><path d="M25.5 9l2.5-2M6.5 9L4 7"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 32 32"><rect x="5" y="6" width="22" height="21" rx="5"/><path d="M11 13a5 5 0 0 1 10 0z"/><path d="M16 13l2-3"/></symbol>
+  <symbol id="i-me" viewBox="0 0 32 32"><circle cx="16" cy="11" r="5"/><path d="M6.5 27a9.5 9.5 0 0 1 19 0"/></symbol>
+  <symbol id="i-fam" viewBox="0 0 32 32"><circle cx="11" cy="10" r="4"/><circle cx="22" cy="12" r="3.2"/><path d="M3.5 26a7.5 7.5 0 0 1 15 0M17 26a6 6 0 0 1 11.5-2.5"/><path d="M22 4.5c.8-1.2 2.8-.8 2.8.8 0 1.4-2.8 3-2.8 3s-2.8-1.6-2.8-3c0-1.6 2-2 2.8-.8z"/></symbol>
+  <symbol id="i-skin" viewBox="0 0 24 24"><path d="M12 3c3.5 3 6 6.2 6 9.5a6 6 0 0 1-12 0C6 9.2 8.5 6 12 3z"/><path d="M9.5 13.5a2.5 2.5 0 0 0 2.5 2.5"/></symbol>
+</svg>
+
+<div class="wrap">
+  <div id="demo" class="demo" hidden>Demo rejim: Bitrix24 webhook hali ulanmagan — arizalar CRMga tushmaydi.</div>
+
+  <header class="hdr">
+    <div class="logo" aria-hidden="true">S</div>
+    <div class="brand"><b>Sinolife</b><span>Collagen 10 000 mg</span></div>
+    <a class="call" id="hdrCall" href="#" hidden><svg><use href="#i-phone"/></svg>Qo‘ng‘iroq</a>
+  </header>
+
+  <!-- 1-SAVOL -->
+  <section class="screen" id="s1">
+    <div class="marq" aria-hidden="true"><div class="track" id="track"></div></div>
+    <span class="pill"><i></i>Bepul 30 soniyalik tahlil</span>
+    <h1>Sizni nima <em>bezovta</em> qilyapti?</h1>
+    <p class="sub">Bitta variantni tanlang — holatingizga mos yechim va bepul mutaxassis maslahatini ko‘rsatamiz.</p>
+    <div class="step"><span>1 / 2 qadam</span><div class="bar"><b style="width:50%"></b></div></div>
+    <div class="opts" id="o1">
+      <button class="opt" data-v="hair" type="button"><span class="ic"><svg><use href="#i-hair"/></svg></span><span class="tx"><b>Soch to‘kilishi</b><small>Taraganda ko‘p soch qoladi, ingichkalashgan</small></span><span class="rd"><svg><use href="#i-check"/></svg></span></button>
+      <button class="opt" data-v="nail" type="button"><span class="ic"><svg><use href="#i-nail"/></svg></span><span class="tx"><b>Tirnoq mo‘rtligi</b><small>Tez sinadi, qatlam-qatlam ko‘chadi</small></span><span class="rd"><svg><use href="#i-check"/></svg></span></button>
+      <button class="opt" data-v="joint" type="button"><span class="ic"><svg><use href="#i-joint"/></svg></span><span class="tx"><b>Bo‘g‘im og‘rig‘i</b><small>Yurganda, zinada qiynalaman, ertalab qotadi</small></span><span class="rd"><svg><use href="#i-check"/></svg></span></button>
+      <button class="opt" data-v="weight" type="button"><span class="ic"><svg><use href="#i-scale"/></svg></span><span class="tx"><b>Ortiqcha vazn</b><small>Vaznni nazorat qilish qiyinlashgan</small></span><span class="rd"><svg><use href="#i-check"/></svg></span></button>
+    </div>
+    <div class="trustline">
+      <span><svg><use href="#i-check"/></svg>10 000 mg kollagen</span>
+      <span><svg><use href="#i-check"/></svg>C vitamini + kakao</span>
+      <span><svg><use href="#i-check"/></svg>To‘lov qabul qilganda</span>
+    </div>
+  </section>
+
+  <!-- 2-SAVOL -->
+  <section class="screen" id="s2" hidden>
+    <span class="pill"><i></i>Yana bitta savol</span>
+    <h1>Bu yechim <em>kim uchun</em>?</h1>
+    <p class="sub">Javobingizga qarab tavsiyani moslashtiramiz.</p>
+    <div class="step"><span>2 / 2 qadam</span><div class="bar"><b id="bar2" style="width:50%"></b></div></div>
+    <div class="opts" id="o2">
+      <button class="opt" data-v="me" type="button"><span class="ic"><svg><use href="#i-me"/></svg></span><span class="tx"><b>O‘zim uchun</b><small>Muammoni o‘zim sezyapman</small></span><span class="rd"><svg><use href="#i-check"/></svg></span></button>
+      <button class="opt" data-v="family" type="button"><span class="ic"><svg><use href="#i-fam"/></svg></span><span class="tx"><b>Ota-onam yoki yaqinim uchun</b><small>Yaqinimga yordam bermoqchiman</small></span><span class="rd"><svg><use href="#i-check"/></svg></span></button>
+    </div>
+    <button class="back" type="button" id="back"><svg width="16" height="16" style="stroke:currentColor;fill:none;stroke-width:2;transform:scaleX(-1)"><use href="#i-arrow"/></svg>Orqaga</button>
+  </section>
+
+  <!-- TAHLIL -->
+  <section class="screen" id="s3" hidden>
+    <div class="anl">
+      <div class="ring"><svg viewBox="0 0 100 100"><circle class="t" cx="50" cy="50" r="44"/><circle class="p" id="ringP" cx="50" cy="50" r="44"/></svg><span id="pct">0%</span></div>
+      <h2>Javoblaringiz tahlil qilinmoqda</h2>
+      <div class="checks" id="checks">
+        <div><i><svg><use href="#i-check"/></svg></i>Belgilaringiz aniqlanmoqda</div>
+        <div><i><svg><use href="#i-check"/></svg></i>Holatingizga mos yechim tanlanmoqda</div>
+        <div><i><svg><use href="#i-check"/></svg></i>Shaxsiy tavsiya tayyorlanmoqda</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NATIJA -->
+  <section class="screen" id="s4" hidden>
+    <div class="eyebrow" style="margin-top:6px">Sizning natijangiz</div>
+    <div class="chips" id="chips"></div>
+    <h2 class="resq" id="resQ"></h2>
+    <p class="resa" id="resA"></p>
+    <p class="rest" id="resT"></p>
+    <a class="cta" href="#order">BEPUL MASLAHAT OLISH<svg><use href="#i-arrow"/></svg></a>
+
+    <div class="show rv">
+      <img src="img/farm.webp" width="900" height="1203" alt="SinoLife Collagen 10 000 mg bankasi kakao dalalari orasida" loading="lazy">
+      <div class="ribbon">AKSIYA</div>
+      <div class="float f1"><b>10 000</b>mg kollagen</div>
+      <div class="float f2"><b>+ C</b>vitamini</div>
+      <div class="float f3"><b>+ Kakao</b>yoqimli ta’m</div>
+    </div>
+    <div class="pname rv">
+      <h2>SinoLife <span>Collagen</span></h2>
+      <p>Gidrolizlangan dengiz kollagen peptidlari + kakao + C vitamini. Ichiladigan kukun.</p>
+    </div>
+
+    <div class="sec rv">
+      <div class="eyebrow">Nega aynan shu?</div>
+      <h2 style="margin-top:8px">Nega <em>SinoLife Collagen</em>?</h2>
+      <div class="formula">
+        <div class="fx"><b>10 000</b><small>mg dengiz kollagen peptidlari</small></div>
+        <div class="plus">+</div>
+        <div class="fx c"><b>C</b><small>vitamini</small></div>
+        <div class="plus">+</div>
+        <div class="fx"><b>Kakao</b><small>ichishga oson</small></div>
+      </div>
+      <div class="eq"><b>C vitamini kollagenning samaradorligini oshiradi</b> — shuning uchun formulamizda ular birga qo‘shilgan. Yuqori kontsentratsiyali gidrolizlangan peptidlar tanaga oson so‘riladi.</div>
+      <div class="benef">
+        <div><svg><use href="#i-skin"/></svg>Teri</div>
+        <div><svg viewBox="0 0 32 32"><use href="#i-hair"/></svg>Soch</div>
+        <div><svg viewBox="0 0 32 32"><use href="#i-nail"/></svg>Tirnoq</div>
+        <div><svg viewBox="0 0 32 32"><use href="#i-joint"/></svg>Bo‘g‘imlar</div>
+      </div>
+      <div class="photo"><img src="img/splash.webp" width="900" height="1200" alt="SinoLife Collagen apelsin va suv chayqalishida" loading="lazy"></div>
+    </div>
+
+    <div class="sec rv">
+      <div class="eyebrow">Qanday ichiladi</div>
+      <h2 style="margin-top:8px">Kuningizni <em>Collagen</em> bilan boshlang</h2>
+      <p class="sub">Erta tongda ichish tavsiya etiladi. Aniq kursni mutaxassisimiz holatingizga qarab aytib beradi.</p>
+      <div class="photo"><img src="img/morning.webp" width="820" height="1180" alt="Ertalabki stol ustida SinoLife Collagen va bir stakan kakaoli ichimlik" loading="lazy"></div>
+    </div>
+
+    <div class="sec rv">
+      <div class="eyebrow">Galereya</div>
+      <h2 style="margin-top:8px">Har kuni, har faslda</h2>
+      <div class="gal" id="gal"></div>
+      <div class="galhint"><svg width="14" height="14" style="stroke:currentColor;fill:none;stroke-width:2"><use href="#i-arrow"/></svg>Suring</div>
+    </div>
+
+    <div class="sec rv">
+      <div class="eyebrow">Bugungi maxsus taklif</div>
+      <div class="promo">
+        <div class="promo-top">
+          <div class="big"><strong>2 ta</strong><span>Collagen oling</span></div>
+          <p><b>Omega — sovg‘a!</b> Ikki bankaga buyurtma berganlarga Omega bonus sifatida beriladi.</p>
+        </div>
+        <img src="img/bike.webp" width="900" height="1294" alt="Velosiped savatidan uchib chiqayotgan to‘rtta SinoLife Collagen bankasi" loading="lazy">
+        <div class="perks">
+          <div class="perk"><i><svg><use href="#i-gift"/></svg></i>2 ta Collagen + Omega bonus</div>
+          <div class="perk"><i><svg><use href="#i-truck"/></svg></i>O‘zbekiston bo‘ylab bepul yetkazib berish</div>
+          <div class="perk"><i><svg><use href="#i-chat"/></svg></i>Bepul mutaxassis maslahati</div>
+          <div class="perk"><i><svg><use href="#i-cash"/></svg></i>Pulni qo‘lga olganda to‘laysiz</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" id="order">
+      <div class="formcard">
+        <h2>Bepul maslahat oling</h2>
+        <p class="lead">Ism va raqamingizni qoldiring, mutaxassisimiz siz bilan bog‘lanib, aynan sizga mos kursni tavsiya qiladi. Pulni qo‘lga olganda to‘laysiz.</p>
+        <form id="form" novalidate>
+          <label class="field" for="f-name"><span>Ismingiz</span>
+            <div class="inp" id="w-name"><input id="f-name" name="name" type="text" autocomplete="given-name" placeholder="Masalan: Dilnoza" maxlength="40"></div>
+          </label>
+          <label class="field" for="f-phone"><span>Telefon raqamingiz</span>
+            <div class="inp" id="w-phone"><em>+998</em><input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="90 123 45 67" maxlength="12"></div>
+          </label>
+          <div class="err" id="err" role="alert"></div>
+          <button class="cta" type="submit" id="submit" style="margin-top:6px">BEPUL MASLAHAT OLISH<svg><use href="#i-arrow"/></svg></button>
+        </form>
+        <div class="fnote">
+          <span><svg><use href="#i-check"/></svg>Pulni mahsulotni ko‘rib turib to‘laysiz</span>
+          <span><svg><use href="#i-check"/></svg>Raqamingiz sir saqlanadi</span>
+        </div>
+      </div>
+      <div class="trio">
+        <div><svg><use href="#i-truck"/></svg>Bepul<br>yetkazib berish</div>
+        <div><svg><use href="#i-cash"/></svg>To‘lov —<br>qabul qilganda</div>
+        <div><svg><use href="#i-chat"/></svg>Mutaxassis<br>maslahati bepul</div>
+      </div>
+      <button class="again" type="button" id="again">Javoblarni o‘zgartirish</button>
+    </div>
+  </section>
+
+  <!-- RAHMAT -->
+  <section class="screen" id="s5" hidden>
+    <div class="thx">
+      <div class="okc"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></svg></div>
+      <h1>Rahmat!</h1>
+      <p>Arizangiz qabul qilindi. Mutaxassisimiz tez orada qo‘ng‘iroq qilib, holatingizga mos kursni aytib beradi.</p>
+      <div class="row" id="thxRow"></div>
+    </div>
+  </section>
+
+  <footer>
+    <b style="color:var(--cream)">Sinolife</b>
+    <div>Go‘zallik ichkaridan boshlanadi.</div>
+    <div class="soc" id="soc"></div>
+    <small>Biologik faol qo‘shimcha. Dori vositasi emas.<br>© <span id="yr"></span> Sinolife. Barcha huquqlar himoyalangan.</small>
+  </footer>
+</div>
+
+<div class="sticky" id="sticky">
+  <a class="cta" href="#order">BEPUL MASLAHAT OLISH<svg><use href="#i-arrow"/></svg></a>
+  <small>2 ta Collagen + Omega sovg‘a · Bepul yetkazib berish · To‘lov qabul qilganda</small>
+</div>
+
+<script>
+/* ====== SOZLAMALAR — shu yerni to'ldiring ====== */
+const CFG = {
+  BITRIX_WEBHOOK: "",      // masalan: "https://obey.bitrix24.kz/rest/1/xxxxxxxxxxxx/"
+  DEAL_CATEGORY_ID: "",    // "Регистрация" voronkasi ID raqami
+  DEAL_STAGE_ID: "",       // "Веб-сайт (лид)" bosqichi ID, masalan "C3:NEW"
+  PHONE: "",               // masalan: "+998 90 123 45 67"
+  TELEGRAM: "",            // masalan: "https://t.me/sinolife"
+  INSTAGRAM: "",           // masalan: "https://instagram.com/sinolife"
+  META_PIXEL_ID: ""        // Facebook/Instagram reklama pikseli (ixtiyoriy)
+};
+/* =============================================== */
+
+const RES = {
+  hair:{label:"Soch to‘kilishi",q:"Sochingiz avvalgidan ko‘proq to‘kilyaptimi?",a:"Sababi — tanangizdagi kollagen zaxirasi kamaygan.",t:"Soch tolalari ham kollagendan quriladi. Yoshi ortishi bilan tabiiy kollagen ishlab chiqarilishi susayadi, natijada soch ingichkalashadi va to‘kila boshlaydi. <strong>SinoLife Collagen</strong> — 10 000 mg gidrolizlangan dengiz kollagen peptidlari, C vitamini bilan boyitilgan holda, sochingizni ichdan mustahkamlashga yordam beradi."},
+  nail:{label:"Tirnoq mo‘rtligi",q:"Tirnoqlaringiz tez sinadi, mo‘rtlashadimi?",a:"Bu ham kollagen yetishmovchiligi belgisi.",t:"Mo‘rt, tez sinuvchan tirnoqlar ko‘pincha tanadagi kollagen tanqisligidan darak beradi. <strong>SinoLife Collagen</strong> tarkibidagi yuqori kontsentratsiyali peptidlar tirnoq to‘qimasini ichdan mustahkamlashga yordam beradi, natijada tirnoqlar sinishga chidamli bo‘ladi."},
+  joint:{label:"Bo‘g‘im og‘rig‘i",q:"Harakatda bo‘g‘imlaringiz og‘riydimi?",a:"Bo‘g‘im tog‘ayi ham kollagendan tashkil topgan — bu Collagenimizning eng kuchli tarafi.",t:"Yoshi ortishi bilan bo‘g‘im tog‘ayidagi kollagen kamayadi, bu esa harakatni og‘irlashtiradi. <strong>SinoLife Collagen</strong>ning eng kuchli tomoni — u kakao va C vitamini bilan birga formulalangan, bu esa kollagenning so‘rilishi va samaradorligini oshiradi. Agar kollagen C vitamini bilan birga ichilmasa, uning ta’siri sezilarli darajada pasayadi — shuning uchun tarkibimizda ular ataylab birlashtirilgan. Muntazam ichilganda bo‘g‘im og‘riqlarini kamaytirishga yordam beradi."},
+  weight:{label:"Ortiqcha vazn",q:"Vazningiz sizni bezovta qilyaptimi?",a:"Kollagen to‘g‘ri ovqatlanish bilan birga yordamchi bo‘lishi mumkin.",t:"<strong>SinoLife Collagen</strong> tarkibidagi kakao va C vitamini moddalar almashinuvini qo‘llab-quvvatlaydi. Albatta, bu mo‘jiza vosita emas — to‘g‘ri va muvozanatli ovqatlanish bilan birga qo‘llanganda vazn nazoratiga yordamchi bo‘lishi mumkin."},
+  family:{q:"Yaqiningizning sochi to‘kilyapti yoki bo‘g‘imlari og‘riydimi?",a:"Bunga yosh bilan kamayadigan kollagen sabab bo‘lishi mumkin.",t:"Yoshi kattalarda tabiiy kollagen ishlab chiqarilishi sekinlashadi — bu soch, tirnoq va bo‘g‘imlarga ta’sir qiladi. <strong>SinoLife Collagen</strong> — ichishga oson, C vitamini bilan to‘liq formulalangan kompleks, ularning kundalik hayotini yengillashtirishga yordam beradi."}
+};
+const WHO = {me:"O‘zim uchun",family:"Ota-onam yoki yaqinim uchun"};
+const state = {sym:null, who:null};
+const $ = s => document.querySelector(s);
+const screens = ["s1","s2","s3","s4","s5"];
+
+function go(id){
+  screens.forEach(s => { $("#"+s).hidden = s !== id; });
+  const el = $("#"+id); el.style.animation="none"; el.offsetHeight; el.style.animation="";
+  window.scrollTo(0,0);
+  $("#sticky").classList.remove("show");
+  if(id==="s4") setupReveal();
+}
+
+/* marquee & gallery (whole images, no crop) */
+const TH = ["orange-tree","coffee","farm","forest","bike","autumn","pool","sand","studio"];
+const tr = $("#track");
+[...TH,...TH].forEach(n => { const i=new Image(); i.src="img/t-"+n+".webp"; i.alt=""; i.height=104; i.decoding="async"; tr.appendChild(i); });
+const GAL = [["orange-tree",900,1126,"Apelsin daraxtida"],["girl",900,1599,"Shaharda"],["coffee",896,1194,"Kofe donlari orasida"],["forest",880,1204,"O‘rmonda"],["autumn",848,1233,"Kuzda"],["pool",896,1194,"Hovuz bo‘yida"],["studio",900,900,"Apelsin bilan"],["sand",693,912,"Go‘zallik ichkaridan"]];
+GAL.forEach(([n,w,h,a]) => { const i=new Image(w,h); i.src="img/"+n+".webp"; i.alt="SinoLife Collagen — "+a; i.loading="lazy"; i.decoding="async"; $("#gal").appendChild(i); });
+
+/* quiz */
+function pick(group, cb){
+  group.addEventListener("click", e => {
+    const b = e.target.closest(".opt"); if(!b) return;
+    group.querySelectorAll(".opt").forEach(x => x.classList.toggle("on", x===b));
+    if(navigator.vibrate) try{navigator.vibrate(12)}catch(_){}
+    setTimeout(() => cb(b.dataset.v), 320);
+  });
+}
+pick($("#o1"), v => { state.sym=v; go("s2"); });
+pick($("#o2"), v => { state.who=v; $("#bar2").style.width="100%"; analyze(); });
+$("#back").onclick = () => go("s1");
+$("#again").onclick = () => { document.querySelectorAll(".opt").forEach(x=>x.classList.remove("on")); $("#bar2").style.width="50%"; go("s1"); };
+
+function analyze(){
+  go("s3");
+  const ring=$("#ringP"), pct=$("#pct"), rows=[...document.querySelectorAll("#checks div")];
+  rows.forEach(r=>r.classList.remove("d"));
+  ring.style.transition="none"; ring.style.strokeDashoffset=276; ring.getBoundingClientRect();
+  ring.style.transition=""; requestAnimationFrame(()=>{ ring.style.strokeDashoffset=0; });
+  const T=2400, t0=performance.now();
+  (function tick(t){ const p=Math.min(1,(t-t0)/T); pct.textContent=Math.round(p*100)+"%"; if(p<1) requestAnimationFrame(tick); })(t0);
+  rows.forEach((r,i)=>setTimeout(()=>r.classList.add("d"), 600+i*700));
+  setTimeout(showResult, T+450);
+}
+
+function showResult(){
+  const r = state.who==="family" ? RES.family : RES[state.sym];
+  $("#resQ").textContent = r.q;
+  $("#resA").textContent = r.a;
+  $("#resT").innerHTML = r.t;
+  $("#chips").innerHTML = `<span class="chip">Muammo: <b>${RES[state.sym].label}</b></span><span class="chip">Kim uchun: <b>${WHO[state.who]}</b></span>`;
+  go("s4");
+}
+
+/* reveal on scroll (visible by default; animates only once JS runs) */
+let io;
+function setupReveal(){
+  const els=[...document.querySelectorAll("#s4 .rv")];
+  if(!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  io && io.disconnect();
+  io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.remove("pre"); io.unobserve(e.target);} }),{rootMargin:"0px 0px -8% 0px"});
+  els.forEach(el => { const b=el.getBoundingClientRect(); if(b.top>innerHeight){ el.classList.add("pre"); io.observe(el);} });
+  setTimeout(() => els.forEach(el => el.classList.remove("pre")), 3500); // xavfsizlik: har qanday holatda ko‘rinadi
+  stickyWatch();
+}
+
+/* sticky CTA: after first CTA scrolled past, hide near the form */
+let formVisible=false, stickyBound=false;
+function stickyWatch(){
+  if(stickyBound) return; stickyBound=true;
+  const fo = new IntersectionObserver(es => { formVisible = es[0].isIntersecting; upd(); });
+  fo.observe($("#order"));
+  addEventListener("scroll", upd, {passive:true});
+  function upd(){ const on = !$("#s4").hidden && scrollY>380 && !formVisible; $("#sticky").classList.toggle("show", on); }
+}
+
+/* phone mask */
+const ph=$("#f-phone");
+ph.addEventListener("input", () => {
+  let d = ph.value.replace(/\D/g,"");
+  if(d.startsWith("998") && d.length>9) d=d.slice(3);
+  d=d.slice(0,9);
+  ph.value = [d.slice(0,2),d.slice(2,5),d.slice(5,7),d.slice(7,9)].filter(Boolean).join(" ");
+  $("#w-phone").classList.remove("bad");
+});
+$("#f-name").addEventListener("input",()=>$("#w-name").classList.remove("bad"));
+
+function utm(){ const p=new URLSearchParams(location.search), o={}; ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(k=>{ if(p.get(k)) o[k.toUpperCase()]=p.get(k); }); return o; }
+
+function enc(obj, prefix, out){
+  out = out || new URLSearchParams();
+  Object.entries(obj).forEach(([k,v]) => {
+    const key = prefix ? `${prefix}[${k}]` : k;
+    if(v!==null && typeof v==="object") enc(v,key,out); else out.append(key, v==null?"":String(v));
+  });
+  return out;
+}
+async function bx(method, params){
+  const base = CFG.BITRIX_WEBHOOK.replace(/\/?$/,"/");
+  const res = await fetch(base+method+".json",{method:"POST",body:enc(params)});
+  const j = await res.json();
+  if(j.error) throw new Error(j.error_description||j.error);
+  return j.result;
+}
+
+async function sendLead(name, phone){
+  const sym = RES[state.sym]?.label || "—", who = WHO[state.who] || "—";
+  if(!CFG.BITRIX_WEBHOOK){ console.warn("BITRIX_WEBHOOK bo‘sh — ariza yuborilmadi (demo)", {name,phone,sym,who}); await new Promise(r=>setTimeout(r,700)); return; }
+  const contactId = await bx("crm.contact.add",{fields:{NAME:name,PHONE:[{VALUE:phone,VALUE_TYPE:"MOBILE"}],SOURCE_ID:"WEB"}});
+  const fields = Object.assign({
+    TITLE:`Collagen sayt — ${name}`,
+    CONTACT_ID:contactId,
+    SOURCE_ID:"WEB",
+    SOURCE_DESCRIPTION:"Collagen quiz landing",
+    COMMENTS:`Muammo: ${sym}\nKim uchun: ${who}\nSahifa: ${location.href}`
+  }, utm());
+  if(CFG.DEAL_CATEGORY_ID!=="") fields.CATEGORY_ID=CFG.DEAL_CATEGORY_ID;
+  if(CFG.DEAL_STAGE_ID) fields.STAGE_ID=CFG.DEAL_STAGE_ID;
+  await bx("crm.deal.add",{fields});
+}
+
+let sending=false;
+$("#form").addEventListener("submit", async e => {
+  e.preventDefault(); if(sending) return;
+  const name=$("#f-name").value.trim(), digits=ph.value.replace(/\D/g,"");
+  let bad=false;
+  if(name.length<2){ $("#w-name").classList.add("bad"); bad=true; }
+  if(digits.length!==9){ $("#w-phone").classList.add("bad"); bad=true; }
+  if(bad){ $("#err").textContent = name.length<2 ? "Ismingizni yozing." : "Telefon raqamini to‘liq kiriting: 9 ta raqam."; return; }
+  $("#err").textContent=""; sending=true;
+  const btn=$("#submit"); btn.disabled=true; btn.firstChild.textContent="YUBORILMOQDA… ";
+  try{
+    await sendLead(name, "+998"+digits);
+    if(window.fbq) try{fbq("track","Lead")}catch(_){}
+    go("s5");
+  }catch(err){
+    console.error(err);
+    $("#err").textContent = "Ariza yuborilmadi. Internetni tekshirib, qayta bosing" + (CFG.PHONE? " yoki qo‘ng‘iroq qiling: "+CFG.PHONE : ".");
+  }finally{ sending=false; btn.disabled=false; btn.firstChild.textContent="BEPUL MASLAHAT OLISH"; }
+});
+
+/* contacts */
+(function(){
+  const tel = CFG.PHONE ? "tel:"+CFG.PHONE.replace(/[^\d+]/g,"") : "";
+  if(tel){ const a=$("#hdrCall"); a.href=tel; a.hidden=false; }
+  const links = [[CFG.TELEGRAM,"Telegram"],[CFG.INSTAGRAM,"Instagram"],[tel,"Qo‘ng‘iroq qilish"]].filter(x=>x[0]);
+  $("#soc").innerHTML = links.map(([h,t])=>`<a href="${h}" target="_blank" rel="noopener">${t}</a>`).join("");
+  $("#thxRow").innerHTML = links.filter(x=>x[1]!=="Instagram").map(([h,t])=>`<a class="ghost" href="${h}" target="_blank" rel="noopener">${t==="Telegram"?"Telegramda yozish":t}</a>`).join("");
+  $("#yr").textContent = new Date().getFullYear();
+  if(!CFG.BITRIX_WEBHOOK) $("#demo").hidden=false;
+  if(CFG.META_PIXEL_ID){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq("init",CFG.META_PIXEL_ID); fbq("track","PageView");
+  }
+})();
+</script>
+
+</body>
+</html>
