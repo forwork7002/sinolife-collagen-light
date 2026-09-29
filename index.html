@@ -273,7 +273,6 @@ footer small{display:block;margin-top:8px;line-height:1.5}
 </svg>
 
 <div class="wrap">
-  <div id="demo" class="demo" hidden>Demo rejim: Bitrix24 webhook hali ulanmagan — arizalar CRMga tushmaydi.</div>
 
   <header class="hdr">
     <div class="logo" aria-hidden="true">S</div>
@@ -453,12 +452,14 @@ footer small{display:block;margin-top:8px;line-height:1.5}
 <script>
 /* ====== SOZLAMALAR — shu yerni to'ldiring ====== */
 const CFG = {
-  BITRIX_WEBHOOK: "",      // masalan: "https://obey.bitrix24.kz/rest/1/xxxxxxxxxxxx/"
-  DEAL_CATEGORY_ID: "",    // "Регистрация" voronkasi ID raqami
-  DEAL_STAGE_ID: "",       // "Веб-сайт (лид)" bosqichi ID, masalan "C3:NEW"
-  PHONE: "",               // masalan: "+998 90 123 45 67"
-  TELEGRAM: "",            // masalan: "https://t.me/sinolife"
-  INSTAGRAM: "",           // masalan: "https://instagram.com/sinolife"
+  // Arizalar landinglar serveriga yuboriladi (webhook server env'ida, sahifada ochiq emas).
+  // Server kontakt + Регистрация → "Веб-сайт (лид)" sdelkasini ochadi.
+  LEAD_ENDPOINT: "https://sinolife-collagen-uvvt8.ondigitalocean.app/api/lead",
+  PRODUCT: "Sinolife Collagen 10 000 mg",
+  VARIANT: "light",
+  PHONE: "+998 55 500 46 56",
+  TELEGRAM: "https://t.me/sinolife_manager",
+  INSTAGRAM: "https://instagram.com/sinolifeuz",
   META_PIXEL_ID: ""        // Facebook/Instagram reklama pikseli (ixtiyoriy)
 };
 /* =============================================== */
@@ -558,38 +559,33 @@ ph.addEventListener("input", () => {
 });
 $("#f-name").addEventListener("input",()=>$("#w-name").classList.remove("bad"));
 
-function utm(){ const p=new URLSearchParams(location.search), o={}; ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(k=>{ if(p.get(k)) o[k.toUpperCase()]=p.get(k); }); return o; }
 
-function enc(obj, prefix, out){
-  out = out || new URLSearchParams();
-  Object.entries(obj).forEach(([k,v]) => {
-    const key = prefix ? `${prefix}[${k}]` : k;
-    if(v!==null && typeof v==="object") enc(v,key,out); else out.append(key, v==null?"":String(v));
+function track(){
+  const p=new URLSearchParams(location.search), o={};
+  ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","fbclid","gclid"].forEach(k=>{
+    let v=p.get(k);
+    try{ if(v) sessionStorage.setItem("t_"+k,v); else v=sessionStorage.getItem("t_"+k); }catch(_){}
+    if(v) o[k]=v;
   });
-  return out;
-}
-async function bx(method, params){
-  const base = CFG.BITRIX_WEBHOOK.replace(/\/?$/,"/");
-  const res = await fetch(base+method+".json",{method:"POST",body:enc(params)});
-  const j = await res.json();
-  if(j.error) throw new Error(j.error_description||j.error);
-  return j.result;
+  return o;
 }
 
 async function sendLead(name, phone){
   const sym = RES[state.sym]?.label || "—", who = WHO[state.who] || "—";
-  if(!CFG.BITRIX_WEBHOOK){ console.warn("BITRIX_WEBHOOK bo‘sh — ariza yuborilmadi (demo)", {name,phone,sym,who}); await new Promise(r=>setTimeout(r,700)); return; }
-  const contactId = await bx("crm.contact.add",{fields:{NAME:name,PHONE:[{VALUE:phone,VALUE_TYPE:"MOBILE"}],SOURCE_ID:"WEB"}});
-  const fields = Object.assign({
-    TITLE:`Collagen sayt — ${name}`,
-    CONTACT_ID:contactId,
-    SOURCE_ID:"WEB",
-    SOURCE_DESCRIPTION:"Collagen quiz landing",
-    COMMENTS:`Muammo: ${sym}\nKim uchun: ${who}\nSahifa: ${location.href}`
-  }, utm());
-  if(CFG.DEAL_CATEGORY_ID!=="") fields.CATEGORY_ID=CFG.DEAL_CATEGORY_ID;
-  if(CFG.DEAL_STAGE_ID) fields.STAGE_ID=CFG.DEAL_STAGE_ID;
-  await bx("crm.deal.add",{fields});
+  const payload = Object.assign({
+    name, phone,
+    product: CFG.PRODUCT,
+    place: `Collagen ${CFG.VARIANT} quiz — Muammo: ${sym}; Kim uchun: ${who}`,
+    quiz_problem: sym, quiz_for: who, variant: CFG.VARIANT,
+    page: location.href, referrer: document.referrer || "", sent_at: new Date().toISOString()
+  }, track());
+  const ctrl = new AbortController(), timer = setTimeout(()=>ctrl.abort(), 20000);
+  try{
+    // text/plain — preflight yo'q, Instagram brauzerida ishonchli
+    const res = await fetch(CFG.LEAD_ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=UTF-8"},body:JSON.stringify(payload),signal:ctrl.signal});
+    const j = await res.json().catch(()=>({}));
+    if(!res.ok || j.ok===false) throw new Error(j.error || ("HTTP "+res.status));
+  } finally { clearTimeout(timer); }
 }
 
 let sending=false;
@@ -603,7 +599,7 @@ $("#form").addEventListener("submit", async e => {
   $("#err").textContent=""; sending=true;
   const btn=$("#submit"); btn.disabled=true; btn.firstChild.textContent="YUBORILMOQDA… ";
   try{
-    await sendLead(name, "+998"+digits);
+    await sendLead(name, "998"+digits);
     if(window.fbq) try{fbq("track","Lead")}catch(_){}
     go("s5");
   }catch(err){
@@ -620,7 +616,6 @@ $("#form").addEventListener("submit", async e => {
   $("#soc").innerHTML = links.map(([h,t])=>`<a href="${h}" target="_blank" rel="noopener">${t}</a>`).join("");
   $("#thxRow").innerHTML = links.filter(x=>x[1]!=="Instagram").map(([h,t])=>`<a class="ghost" href="${h}" target="_blank" rel="noopener">${t==="Telegram"?"Telegramda yozish":t}</a>`).join("");
   $("#yr").textContent = new Date().getFullYear();
-  if(!CFG.BITRIX_WEBHOOK) $("#demo").hidden=false;
   if(CFG.META_PIXEL_ID){
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq("init",CFG.META_PIXEL_ID); fbq("track","PageView");
