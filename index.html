@@ -424,7 +424,7 @@ src="https://www.facebook.com/tr?id=1838095140539386&ev=PageView&noscript=1"
             <div class="inp" id="w-name"><input id="f-name" name="name" type="text" autocomplete="given-name" placeholder="Masalan: Dilnoza" maxlength="40"></div>
           </label>
           <label class="field" for="f-phone"><span>Telefon raqamingiz</span>
-            <div class="inp" id="w-phone"><em>+998</em><input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="90 123 45 67" maxlength="12"></div>
+            <div class="inp" id="w-phone"><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+998 90 123 45 67" value="+998 " maxlength="17"></div>
           </label>
           <div class="err" id="err" role="alert"></div>
           <button class="cta" type="submit" id="submit" style="margin-top:6px">BEPUL MASLAHAT OLISH<svg><use href="#i-arrow"/></svg></button>
@@ -566,13 +566,26 @@ function stickyWatch(){
 }
 
 /* phone mask */
-const ph=$("#f-phone");
-ph.addEventListener("input", () => {
-  let d = ph.value.replace(/\D/g,"");
-  if(d.startsWith("998") && d.length>9) d=d.slice(3);
-  d=d.slice(0,9);
-  ph.value = [d.slice(0,2),d.slice(2,5),d.slice(5,7),d.slice(7,9)].filter(Boolean).join(" ");
-  $("#w-phone").classList.remove("bad");
+const ph=$("#f-phone"), PFX="+998 ";
+/* maydonda doim "+998 " turadi; mijoz faqat 9 ta raqamni yozadi */
+function natDigits(raw){
+  let d=String(raw||"").replace(/\D/g,""); const s=String(raw||"").trim();
+  if(s.startsWith("+998") || (d.length>9 && d.startsWith("998"))) d=d.slice(3);
+  else if(s.startsWith("+") && "998".startsWith(d)) d="";   // prefiksni o'chirmoqchi bo'lsa — qaytadi
+  return d.slice(0,9);
+}
+function fmtPhone(){
+  const d=natDigits(ph.value);
+  ph.value = PFX + [d.slice(0,2),d.slice(2,5),d.slice(5,7),d.slice(7,9)].filter(Boolean).join(" ");
+}
+function caretEnd(){ const n=ph.value.length; try{ ph.setSelectionRange(n,n); }catch(_){} }
+if(!ph.value.startsWith("+998")) ph.value=PFX;
+ph.addEventListener("input", () => { fmtPhone(); caretEnd(); $("#w-phone").classList.remove("bad"); });
+ph.addEventListener("focus", () => { if(!ph.value.startsWith("+998")) fmtPhone(); setTimeout(caretEnd,0); });
+ph.addEventListener("click", () => { if(ph.selectionStart<PFX.length && ph.selectionStart===ph.selectionEnd) caretEnd(); });
+ph.addEventListener("keydown", e => {
+  if(e.key==="Backspace" && ph.selectionStart<=PFX.length && ph.selectionEnd<=PFX.length) e.preventDefault();
+  if(e.key==="Delete" && ph.selectionStart<PFX.length-1 && ph.selectionEnd<PFX.length) e.preventDefault();
 });
 $("#f-name").addEventListener("input",()=>$("#w-name").classList.remove("bad"));
 
@@ -608,7 +621,7 @@ async function sendLead(name, phone){
 let sending=false;
 $("#form").addEventListener("submit", async e => {
   e.preventDefault(); if(sending) return;
-  const name=$("#f-name").value.trim(), digits=ph.value.replace(/\D/g,"");
+  const name=$("#f-name").value.trim(), digits=natDigits(ph.value);
   let bad=false;
   if(name.length<2){ $("#w-name").classList.add("bad"); bad=true; }
   if(digits.length!==9){ $("#w-phone").classList.add("bad"); bad=true; }
