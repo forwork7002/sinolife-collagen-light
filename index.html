@@ -45,7 +45,7 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
 
 /* ambient */
-.glow{position:fixed;inset:0;pointer-events:none;z-index:0;
+.glow{position:fixed;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:0;
   background:
    radial-gradient(60vmax 45vmax at 85% -10%,rgba(255,138,42,.18),transparent 60%),
    radial-gradient(55vmax 45vmax at -10% 30%,rgba(224,176,96,.28),transparent 60%),
@@ -118,7 +118,7 @@ em{font-style:italic;font-weight:600;color:var(--em)}
 .ring circle{fill:none;stroke-width:6}
 .ring .t{stroke:var(--surface2)}
 .ring .p{stroke:url(#gr);stroke-linecap:round;stroke-dasharray:276;stroke-dashoffset:276;transition:stroke-dashoffset 2.4s cubic-bezier(.4,.1,.2,1)}
-.ring span{position:absolute;inset:0;display:grid;place-items:center;font:700 22px var(--display);font-variant-numeric:tabular-nums}
+.ring span{position:absolute;top:0;right:0;bottom:0;left:0;display:grid;place-items:center;font:700 22px var(--display);font-variant-numeric:tabular-nums}
 .checks{display:grid;gap:12px;text-align:left}
 .checks div{display:flex;align-items:center;gap:10px;color:var(--dim);transition:color .3s}
 .checks i{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line2);display:grid;place-items:center;flex:none;transition:.3s}
@@ -601,7 +601,7 @@ function track(){
 }
 
 async function sendLead(name, phone){
-  const sym = RES[state.sym]?.label || "—", who = WHO[state.who] || "—";
+  const sym = (RES[state.sym]||{}).label || "—", who = WHO[state.who] || "—";
   const payload = Object.assign({
     name, phone,
     product: CFG.PRODUCT,
